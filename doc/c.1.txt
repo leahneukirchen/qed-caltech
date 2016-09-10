@@ -1,0 +1,80 @@
+
+
+
+NAME
+     c - columnate
+
+SYNOPSIS
+     c [-] [-n] [-wN] [file1 ...]
+
+DESCRIPTION
+     C reads from the standard input (or the named files) and
+     writes to the standard output splitting as many lines as
+     possible per line. "-n" sets the line width (default 80).
+     If an input line ends in a colon `:', a `break' occurs; thus
+     `ls directory1 directory2 | c' causes the listings of
+     directories to be columnated separately.  This feature is
+     suppressed if the "-" option is present, or if the input is
+     from a file.  The "-wN" option sets the maximum number of
+     words required to columnate; the default is 2048.  A message
+     is printed if space runs out.
+
+EXAMPLES
+     ls | c
+     nm /net/caltech/unix | c -130 | pr -h "Cal conf" | lpr
+
+DIAGNOSTICS
+     "c: out of words": run again, with a larger words space
+     size.
+     "c: out of memory": tough luck.
+     "c: no word space": things are deeply disturbed.
+     If a file cannot be read, a message is printed but
+     processing continues.
+
+U of T INFO
+     Written by Rob Pike, inspired by a U. Waterloo version.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - 1 -
+
+

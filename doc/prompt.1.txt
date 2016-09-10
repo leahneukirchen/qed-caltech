@@ -1,0 +1,80 @@
+
+
+
+NAME
+     prompt - sets personal default for editor prompting
+
+SYNOPSIS
+     prompt [ y ] [ n ]
+
+DESCRIPTION
+     Prompt sets the user's own personal default for editor
+     prompting.  The argument y gives prompting on, n gives
+     prompting off, and no argument at all prints the current
+     setting.
+
+     The initial setting for a new user should be y.
+
+     The settings are recorded in the /etc/prompt file, which has
+     one line per userid (userid number n is line n+1), with each
+     line a single character.  The character is y (for setting y)
+     or n (for setting n).
+
+FILES
+     /etc/prompt
+
+SEE ALSO
+     ed(I)
+
+U OF T INFO
+     Written at U of T by Henry Spencer.
+
+BUGS
+     Should really check the file to make sure the format is
+     correct.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - 1 -
+
+

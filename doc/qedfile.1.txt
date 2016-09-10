@@ -1,0 +1,80 @@
+
+
+
+NAME
+     qedfile - display or set default qed startup file for user
+
+SYNOPSIS
+     qedfile [ -N ] [ filename ]
+
+DESCRIPTION
+     Qedfile reads "/etc/qedfile" and looks for line
+     corresponding to the current user.  It will then display the
+     current setting.  If \fIfilename\fR is given the startup
+     file is set to that value.
+
+     \fIFilename\fR cannot be 32 characters or longer.
+
+     If the user id is the super user, and the \fIN\fR argument
+     is given, the user id is taken to be the value of \fIN\fR.
+
+SEE ALSO
+     qed(I)
+
+FILES
+     /etc/qedfile
+
+DIAGNOSTICS
+
+U of T INFO
+     Written at BNSR by David Tilbrook
+
+BUGS
+     If user id is greater than current size of "/etc/qedfile"
+     then user file cannot be set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - 1 -
+
+

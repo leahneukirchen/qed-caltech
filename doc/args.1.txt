@@ -1,0 +1,80 @@
+
+
+
+NAME
+     args - copy standard input to argument list and execute
+
+SYNOPSIS
+     args ...
+
+DESCRIPTION
+     Args creates an argument list from its argument list and the
+     lines of its standard input.  Using that argument list it
+     tries to execute a command.  It knows about commands in /bin
+     or /usr/bin, and about command files.
+          For example,         find . -type b -a -print | args ls
+     -l
+     will list all the block special files under your current
+     working directory.
+
+SEE ALSO
+     pick (I) -- a useful adjunct to args
+
+DIAGNOSTICS
+     Can't exec -- If the programme cannot be found.
+     Too many args -- UNIX has a limit of 512 characters in an
+     argument list.
+
+U of T INFO
+     Written at the University of Toronto by Tom Duff.
+
+BUGS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - 1 -
+
+

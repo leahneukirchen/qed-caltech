@@ -1,0 +1,80 @@
+
+
+
+NAME
+     qedbufs - output qed saved structures
+
+SYNOPSIS
+     qedbufs [ -n% ] [ prefix ... ]
+
+DESCRIPTION
+     Qedbufs is used to examine the contents of a Qed(I) "save"
+     file.
+
+     The Qed "Sv" command dumps the contents of all buffers into
+     a file called "X:aq" where `X' is supplied as part of the
+     "Sv" command, or defaulted to `q'.  It also dumps all the
+     buffer controls (i.e. the zero, dot & dollar) and the
+     register contents into a file called "X:bq".
+
+     Qedbufs outputs some or all of the contents of the "X:bq"
+     file where `X' is the argument prefix (default `q').
+
+     The meanings of the flags are:
+
+     -     Equivalent to "-n%". See below.
+
+     -n    print the dot, dollar, cflag, and filename for the
+          buffers.
+
+     -%    print the values of the registers.
+
+     The default flag is "-n".  The "-%" flag suppresses the "-n"
+     flag, unless explicitly given.
+
+SEE ALSO
+     qed(I), qedfile(I)
+
+FILES
+     *:bq
+
+DIAGNOSTICS
+
+U of T INFO
+     Written at BNSR by David Tilbrook
+
+BUGS
+     Depends critically on defined constants in Qed, so if Qed
+     changes Qedbufs may not work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - 1 -
+
+

@@ -1,0 +1,80 @@
+
+
+
+NAME
+     grep - search a file for a pattern
+
+SYNOPSIS
+     grep [ -v ] [ -d ] [ -b ] [ -c ] [ -n ] [ -f ] expression [
+     file ] ...
+
+DESCRIPTION
+     Grep searches the input files (standard input default) for
+     lines matching the regular expression.  Normally, each line
+     found is copied to the standard output.  If the -v flag is
+     used, all lines but those matching are printed.  If the -d
+     flag is used, pattern matching is in dual case ('c' matches
+     'c' or 'C').  If the -c flag is used, only a count of
+     matching lines is printed.  If the -n flag is used, each
+     line is preceded its relative line number in the file.  If
+     the -b flag is used, each line is preceded by the block
+     number on which it was found.  This is sometimes useful in
+     locating disk block numbers by context.
+
+     In all cases the file name is shown if there is more than
+     one input file, or if the -f flag is used.
+
+     For a complete description of the regular expression, see ed
+     (I).  Care should be taken when using the characters $ * + [
+     ^ | ( ) and \ in the regular expression as they are also
+     meaningful to the Shell.  It is generally necessary to
+     enclose the entire expression argument in quotes.
+
+     Grep's return code is 0 if at least one matching (or, for
+     -v, nonmatching) line is found, 1 if none is found, and 2 if
+     a file is nonexistent or something is wrong with the
+     argument list.
+
+SEE ALSO
+     ed (I), sh (I)
+
+U of T INFO
+     Modified by Rob Pike to implement the new pattern matching
+     facilities of the U of T version of ed.  The "-f" flag was
+     added by Rob Pike.  Henry Spencer added the 0-vs-1 return
+     codes (2 was already present) and documented the return
+     codes.
+
+BUGS
+     Lines are limited to 256 characters; longer lines are
+     truncated.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              - 1 -
+
+
