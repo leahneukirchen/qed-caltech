@@ -28,7 +28,7 @@ jmp_buf	env;
  * Special is never used directly - it is just used in tracing
  *	pushinp()/getchar.c can be called with a negative index for cspec[]
  */
-char	special[]; /* "xgBbBcfFlprzN\"\\'" */
+char	special[17]; /* "xgBbBcfFlprzN\"\\'" */
 #define	cspec	(special + 3)
 #define	XTTY		(-3)
 #define	GLOB		(-2)
@@ -137,9 +137,9 @@ char	*linebp;
 #include	"sgtty.h"
 struct	sgttyb ttybuf;
 char	*ttyty;		/* terminal type (needed for xform) */
-char	correspondence[];	/* "|^\\`[]{}~" */
-char	monocase[];		/* "`|~{}" */
-char	esc_monocase[];		/* "'!^()" */
+char	correspondence[10];	/* "|^\\`[]{}~" */
+char	monocase[6];		/* "`|~{}" */
+char	esc_monocase[6];		/* "'!^()" */
 #define	ebcd (correspondence+2)
 #define	dualcase (monocase+5)
 int	ninbuf;
@@ -175,9 +175,9 @@ int	nbra;
 int	errok;
 int	oneline;
 int	lock;
-char	bname[]; /* ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~" */
+char	bname[57]; /* ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~" */
 int	nflag;
-char	nchars[];	/* chars for `n' option: = "rspPlL" */
+char	nchars[7];	/* chars for `n' option: = "rspPlL" */
 #define	lchars	(nchars+2)	/* valid display characters; used by append */
 int	litflag; /*0*/	/* TRUE==> don't interpret special chars */
 int	bbempty;	/* whether getc's internal buffer buffer is correct */
