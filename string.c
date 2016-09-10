@@ -33,9 +33,9 @@ shiftstring(up){	/* A highly machine-dependent routine */
 	register struct string *sp;
 	for(sp=string; sp<=string+NSTRING; sp++)
 		if(up)
-			sp->str += (int) strarea;
+			sp->str += (long) strarea;
 		else
-			sp->str -= (int) strarea;
+			sp->str -= (long) strarea;
 }
 clearstring(z){
 	string[z].len = 0;

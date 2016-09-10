@@ -1,6 +1,8 @@
 /*% cc -c -O %
  */
 #include "vars.h"
+int pushinp(int, long);
+
 char digits[] = "0123456789";	/* getnum() & atoi() work even on non-ASCII systems */
 getnum()
 {
@@ -275,7 +277,7 @@ posn(c, s)
 	return(-1);
 }
 pushinp(type, arg)
-	register arg;
+	long arg;
 {
 	register i;
 	register struct stack *s;
