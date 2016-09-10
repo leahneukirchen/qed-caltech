@@ -108,7 +108,7 @@ char eof;
 						*ep++ = *penultep++;
 					while (penultep!=lastep);
 				}
-				*penultep =| STAR;
+				*penultep |= STAR;
 				lastep = 0;
 			}
 			continue;
@@ -134,7 +134,7 @@ char eof;
 					c=getsvc();
 					if (c == EOF || c == '\n' || c<=ep[-1])
 						goto cerror;
-					ep[-1] =| 0200;
+					ep[-1] |= 0200;
 					*ep++ = c;
 					lastc = getsvc();	/* prime lastc */
 				} else if (dflag&&'a'<=(c|' ')&&(c|' ')<='z')
@@ -153,7 +153,7 @@ char eof;
 			}
 			/* fall through */
 		default:
-			c =& ~0200;
+			c &= ~0200;
 			if(dflag && c|' '>='a' && c|' '<='z'){
 				*ep++ = CCL;
 				*ep++ = 3;
@@ -253,7 +253,7 @@ char *alp, *aep;
 		case CCL:
 		case NCCL:
 			if (cclass(ep, *lp++, ep[-1]==CCL)) {
-				ep =+ *ep;
+				ep += *ep;
 				continue;
 			}
 			return(FALSE);
@@ -261,7 +261,7 @@ char *alp, *aep;
 		case CCL|STAR:
 		case NCCL|STAR:
 			do ; while (cclass(ep, *lp++, ep[-1]==(CCL|STAR)));
-			ep =+ *ep;
+			ep += *ep;
 			break;
 
 		case CFUNNY:

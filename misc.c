@@ -34,9 +34,9 @@ fixbufs(n)
 	register struct buffer *bufp;
 	lock++;
 	for(bufp=curbuf+1;bufp!=buffer+NBUFS;bufp++){
-		bufp->zero=+n;
-		bufp->dot=+n;
-		bufp->dol=+n;
+		bufp->zero+=n;
+		bufp->dot+=n;
+		bufp->dol+=n;
 	}
 	unlock();
 }

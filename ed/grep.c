@@ -326,7 +326,7 @@ register char *lp, *ep;
 		case CCL:
 		case NCCL:
 			if (cclass(ep, *lp++, ep[-1]==CCL)) {
-				ep =+ *ep;
+				ep += *ep;
 				continue;
 			}
 			return(FALSE);
@@ -334,7 +334,7 @@ register char *lp, *ep;
 		case CCL|STAR:
 		case NCCL|STAR:
 			do ; while (cclass(ep, *lp++, ep[-1]==(CCL|STAR)));
-			ep =+ *ep;
+			ep += *ep;
 			break;
 
 		case CFUNNY:

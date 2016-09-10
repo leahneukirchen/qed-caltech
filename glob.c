@@ -39,14 +39,14 @@ global(k)
 	compile(getchar());
 	getglob(globuf);
 	for (a1=zero; ++a1<=dol;) {
-		*a1 =& ~01;
+		*a1 &= ~01;
 		if (a1>=addr1 && a1<=addr2 && execute(a1)==k)
-			*a1 =| 01;
+			*a1 |= 01;
 	}
 	startbuf = curbuf;
 	for (a1=zero; ++a1<=dol; ) {
 		if (*a1 & 01) {
-			*a1 =& ~01;
+			*a1 &= ~01;
 			dot = a1;
 			if (!exglob(globuf, "p"))
 				break;

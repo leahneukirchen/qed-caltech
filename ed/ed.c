@@ -689,7 +689,7 @@ int *deflt;
 			peekc = c;
 			if (!opcnt)
 				a = zero;
-			a =+ sign*getnum();
+			a += sign*getnum();
 		} else switch (c) {
 		case '$':
 			a = dol;
@@ -712,7 +712,7 @@ int *deflt;
 			compile(c);
 			b = a;
 			for (;;) {
-				a =+ sign;
+				a += sign;
 				if (a<zero)
 					a = dol;
 				if (a>dol)
@@ -725,7 +725,7 @@ int *deflt;
 			break;
 		default:
 			if (nextopand == opcnt) {
-				a =+ sign;
+				a += sign;
 				if (a<zero || dol<a)
 					continue;	/* error('$'); */
 			}
@@ -1129,7 +1129,7 @@ register int *rdot;
 		if (a1 >= endcore) {
 			if (sbrk(LDCHUNK*(sizeof *endcore)) == -1)
 				error('c');
-			endcore =+ LDCHUNK;
+			endcore += LDCHUNK;
 		}
 		tl = putline();
 		nline++;
@@ -1238,7 +1238,7 @@ clearbuf()
 	ooff = oblock = 0;
 	close(creat(tfname, 0600));
 	dot = dol = p = zero;
-	p =+ LDCHUNK+1;
+	p += LDCHUNK+1;
 	if (p<endcore) {
 		endcore = p;
 		brk(p);
@@ -1331,7 +1331,7 @@ Unix()
 			p = getline(*a++);
 			do ; while (!isEOForNL(*p++));
 			*--p = '\n';
-		} while (write(pfd[1],linebuf,p =- linebuf-1)>=0 && a<=addr2);
+		} while (write(pfd[1],linebuf,p -= linebuf-1)>=0 && a<=addr2);
 		close(pfd[1]);
 		signal(SIGBPIPE, onbpipe);
 	}
@@ -1370,8 +1370,8 @@ int tl;
 				}
 			}
 			tl++;
-			bp =- nl;
-			nl =+ BLKSIZE;
+			bp -= nl;
+			nl += BLKSIZE;
 		}
 		nl--;
 	} while (*lp++ = *bp++);
@@ -1390,7 +1390,7 @@ int putline()
 
 	lp = linebuf;
 	r = (oblock<<8) + ((op=ooff)>>1);	/* ooff may be 512! */
-	op =+ obuff;
+	op += obuff;
 	lock++;
 	do {
 		if (op >= obuff+BLKSIZE) {
@@ -1507,8 +1507,8 @@ substitute(inglob)
 				getmem();	/* discard result */
 				replace(a,putline());
 				m=append(getmem,a);
-				a =+ m;
-				addr2 =+ m;
+				a += m;
+				addr2 += m;
 			}
 		}
 	}
@@ -1576,7 +1576,7 @@ move(cflag)
 	inc(ad2);
 	inc(adt);
 	if (adt<=ad1) {
-		dot =+ ad2-ad1;
+		dot += ad2-ad1;
 		addr2 = ad2;
 		ad2 = ad1;
 		ad1 = adt;
@@ -1839,7 +1839,7 @@ register char *lp, *ep;
 		case CCL:
 		case NCCL:
 			if (cclass(ep, *lp++, ep[-1]==CCL)) {
-				ep =+ *ep;
+				ep += *ep;
 				continue;
 			}
 			return(FALSE);
@@ -1847,7 +1847,7 @@ register char *lp, *ep;
 		case CCL|STAR:
 		case NCCL|STAR:
 			do ; while (cclass(ep, *lp++, ep[-1]==(CCL|STAR)));
-			ep =+ *ep;
+			ep += *ep;
 			break;
 
 		case CFUNNY:
@@ -2247,7 +2247,7 @@ register char c;
 				*lp++ =  (c>>6)    +'0';
 				*lp++ = ((c>>3)&07)+'0';
 				c     = ( c    &07)+'0';
-				col =+ 3;
+				col += 3;
 			}
 		}
 	}

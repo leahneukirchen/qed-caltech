@@ -76,7 +76,7 @@ move(copyflag)
 	fixup(fb, tb, totmved);
 	buffer[fb].dot = buffer[fb].zero + tonewdot;
 	if(copyflag == 0 && fb == tb && todot >= tonewdot){
-		todot =- totmved;
+		todot -= totmved;
 	}
 	if(!copyflag)
 		buffer[fb].cflag = TRUE;
@@ -104,13 +104,13 @@ fixup(from,to,tot) int from, to, tot;
 		lo = from;
 		hi = to;
 	}
-	buffer[lo].dol =+ n;
+	buffer[lo].dol += n;
 	for(b = lo;++b < hi;){
-		buffer[b].zero =+ n;
-		buffer[b].dot =+ n;
-		buffer[b].dol =+ n;
+		buffer[b].zero += n;
+		buffer[b].dot += n;
+		buffer[b].dol += n;
 	}
-	buffer[hi].zero =+ n;
+	buffer[hi].zero += n;
 }
 reverse(aa1, aa2)
 {

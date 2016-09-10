@@ -174,7 +174,7 @@ putstrs()
 shiftstring() {	/* A highly machine-dependent routine */
 	register struct string *sp;
 	for (sp=string; sp<=string+NSTRING; sp++)
-		sp->str =+ strarea;
+		sp->str += strarea;
 }
 puts(c, p) register char c, *p;
 {
@@ -214,7 +214,7 @@ register char c;
 				*lp++ =  (c>>6)    +'0';
 				*lp++ = ((c>>3)&07)+'0';
 				c     = ( c    &07)+'0';
-				col =+ 3;
+				col += 3;
 			}
 		}
 	}

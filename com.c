@@ -147,7 +147,8 @@ append(f, a) int (*f)();
 		if (lastdol>=endcore) {
 			if (sbrk(1024)==-1)
 				error('c');
-			endcore.iint =+ 1024;
+			// endcore.iint =+ 1024;
+			endcore += 1024;
 		}
 		tl = putline();
 		nline++;
@@ -215,8 +216,8 @@ delete()
 	*(a2++);
 	a3 = lastdol;
 	lock++;
-	dol =- a2 - a1;
-	lastdol =- a2 - a1;
+	dol -= a2 - a1;
+	lastdol -= a2 - a1;
 	fixbufs(a1-a2);
 	do
 		*a1++ = *a2++;
@@ -303,19 +304,19 @@ numcom(z)
 			putdn(abs(n));
 			goto Numeric;
 		case '+':
-			n =+ getsigned();
+			n += getsigned();
 			goto Numeric;
 		case '-':
-			n =- getsigned();
+			n -= getsigned();
 			goto Numeric;
 		case '*':
-			n =* getsigned();
+			n *= getsigned();
 			goto Numeric;
 		case '/':
-			n =/ getsigned();
+			n /= getsigned();
 			goto Numeric;
 		case '%':
-			n =% getsigned();
+			n %= getsigned();
 			goto Numeric;
 		case '<':
 			truth = n<getsigned();
@@ -432,12 +433,12 @@ strcom(z)
 		if(abs(n) > sp->len)
 			error('[');
 		if(n>=0){
-			sp->str =+ n;
-			sp->len =- n;
+			sp->str += n;
+			sp->len -= n;
 		}
 		else{
 			sp->str[sp->len+n]='\0';
-			sp->len =+ n;
+			sp->len += n;
 		}
 		break;
 	case ')':
@@ -445,7 +446,7 @@ strcom(z)
 		if(abs(n) > sp->len)
 			error('[');
 		if(n<0){
-			sp->str =+ sp->len+n;
+			sp->str += sp->len+n;
 			sp->len = -n;
 		}
 		else{
@@ -500,7 +501,7 @@ strinc(z, n)
 	register char *q;
 	q=string[z].str;
 	while(*q)
-		*q++ =+ n;
+		*q++ += n;
 }
 locn(ap, aq)
 	char *ap, *aq;

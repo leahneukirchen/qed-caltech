@@ -111,9 +111,9 @@ restor()
 		i -= t;
 		i >>= 1;
 		for(b = buffer;b <= &buffer[NBUFS-1];b++){
-			b->zero =+ i;
-			b->dot =+ i;
-			b->dol =+ i;
+			b->zero += i;
+			b->dot += i;
+			b->dol += i;
 		}
 	}
 	newbuf(0);

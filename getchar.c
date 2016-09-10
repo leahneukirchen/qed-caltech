@@ -258,7 +258,7 @@ ttyc()
 {
 	initflag = 0;
 	if(read(0, &lastttyc, 1) > 0)
-		lastttyc =& 0177;
+		lastttyc &= 0177;
 	else
 		lastttyc = EOF;
 	return(lastttyc);

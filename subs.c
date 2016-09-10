@@ -39,7 +39,7 @@ substitute(inglob)
 					loc2++;
 			} while (execute(0));
 			if (m<=0) {
-				inglob =| TRUE;
+				inglob |= TRUE;
 				p=next_old;
 				do ; while (*p++);
 				place(next_old,p,0);
@@ -48,8 +48,8 @@ substitute(inglob)
 				do ; while (*p++ = *q++);
 				replace(a1,putline());
 				m=append(getsub,a1);
-				a1 =+ m;
-				addr2 =+ m;
+				a1 += m;
+				addr2 += m;
 			}
 		}
 	}
@@ -120,7 +120,7 @@ dosub()
 	while (c = *p++) {
 		if (c=='&' || (c == '^' && uflag))
 			place(loc1,loc2,c=='^');
-		else if (c<0 && (c =& 0177)>='1' && c<'1'+nbra)
+		else if (c<0 && (c &= 0177)>='1' && c<'1'+nbra)
 			place(braslist[c-'1'],braelist[c-'1'], 0);
 		else {
 			*next_new++ = c;
@@ -149,13 +149,13 @@ place(l1, l2, ucase)
 			if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
 				switch(uflag){
 				case 's':
-					*l1++ =^ 040;
+					*l1++ ^= 040;
 					break;
 				case 'u':
-					*l1++ =& ~040;
+					*l1++ &= ~040;
 					break;
 				case 'l':
-					*l1++ =| 040;
+					*l1++ |= 040;
 					break;
 				default:
 					l1++;
@@ -185,7 +185,7 @@ replace(line,ptr)
 {
 	register int *p;
 
-	*line =| 01;
+	*line |= 01;
 	for (p=names; p<names+NBUFS; p++)
 		if (*p == *line)
 			*p = ptr|01;
@@ -250,7 +250,7 @@ int input;
 	c = *cp;
 	p=ttyty;
 	if (c=='\t')
-		col =| 07;
+		col |= 07;
 	else if (c<' ' || c=='\177') {
 		if (p==dualcase || p==monocase || c=='\b' || c=='\r')
 			error('t'); /* invalid character in x data */

@@ -339,7 +339,7 @@ register char *s;
 	register h;
 	h=0;
 	while(*s)
-		h =+ *s++;
+		h += *s++;
 	return(file+h%NFILES);
 }
 eq(as, at)
@@ -453,7 +453,7 @@ struct dep *d;
 				t=arg1;
 			else
 				t=arg2;
-			s=+2;
+			s+=2;
 			if(debug)
 				printf("%s", t);
 			while(*t)

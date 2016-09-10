@@ -21,9 +21,9 @@ int *address(deflt)
 				n = n*10+(c-'0');
 			ungetchar(c);
 			if (plus)
-				a =+ n;
+				a += n;
 			else
-				a =- n;
+				a -= n;
 		} else switch (c) {
 		case '$':
 			a = dol;

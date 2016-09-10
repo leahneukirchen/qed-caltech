@@ -184,7 +184,7 @@ Unix(type)
 			s=getline(*a++, linebuf);
 			do; while(*s++);
 			*--s='\n';
-			if (write(piper[1],linebuf,s=- linebuf-1)<0){
+			if (write(piper[1],linebuf,s-= linebuf-1)<0){
 				puts("?o");
 				break;
 			}

@@ -39,8 +39,8 @@ char *getline(tl, lbuf)
 				}
 			}
 			tl++;
-			bp =- nl;
-			nl =+ BLKSIZE;
+			bp -= nl;
+			nl += BLKSIZE;
 		}
 		nl--;
 	} while (*lp++ = *bp++);
@@ -54,8 +54,8 @@ int putline()
 
 	cflag++;
 	lp = linebuf;
-	r = (oblock<<8) + ((op=ooff)>>1);	/* ooff may be 512! */
-	op =+ obuff;
+	r = (oblock<<8) + ((int)(op=ooff)>>1);	/* ooff may be 512! */
+	op += (int) obuff;
 	lock++;
 	do {
 		if (op >= obuff+BLKSIZE) {
