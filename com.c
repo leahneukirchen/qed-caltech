@@ -4,7 +4,7 @@
 #define	OUT	10
 #define	BACKWARD 11
 #define FORWARD 12
-char	jumpcs[] "0123456789o`'";
+char	jumpcs[] = "0123456789o`'";
 jump()	/* this should be pronounced with a Swedish accent */
 {
 	register int i;

@@ -9,28 +9,28 @@
 #define	UP	1
 #define DOWN	0
 struct buffer *curbuf = buffer;
-char	*linp	line;
-int	appflag	0;
-int	prflag	0;	/* prflag==1 ==> much code to get it right. use the startup buffer */
-int	lastttyc '\n';
-int	gflag	0;
-int	tflag	0;
-int	vflag	0;	/* initialization code turns it on */
-int	uflag	's';
-int	dflag	0;
-int	initflag 1;
+char	*linp	=line;
+int	appflag	=0;
+int	prflag	=0;	/* prflag==1 ==> much code to get it right. use the startup buffer */
+int	lastttyc ='\n';
+int	gflag	=0;
+int	tflag	=0;
+int	vflag	=0;	/* initialization code turns it on */
+int	uflag	='s';
+int	dflag	=0;
+int	initflag =1;
 int	nflag;
 char	nchars[] = "rspPlL";
-int 	*option[] {
+int 	*option[] = {
 	&cflag,	&dflag,	&iflag,	&prflag,&tflag,	&vflag,
 };
-char 	opcs[] "cdipTv";
-int	pagesize 21;
-int	tfile	-1;
-struct	sgttyb ttybuf { 0, 0, '\b', '\b', /*0*/};
-char	correspondence[] "|^\\`[]{}~";
-char	monocase[] "`|~{}";
-char	esc_monocase[] "'!^()";
+char 	opcs[] = "cdipTv";
+int	pagesize =21;
+int	tfile	=-1;
+struct	sgttyb ttybuf ={ 0, 0, '\b', '\b', /*0*/};
+char	correspondence[] ="|^\\`[]{}~";
+char	monocase[] ="`|~{}";
+char	esc_monocase[] ="'!^()";
 int	(*pending)();
 
 rescue()

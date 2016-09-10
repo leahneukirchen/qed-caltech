@@ -3,8 +3,8 @@
 #include "vars.h"
 #define BLKSIZE	512
 char	ibuff[512];
-int	iblock	-1;
-int	oblock	0;
+int	iblock=	-1;
+int	oblock=	0;
 char	obuff[512];
 int	ooff;		/* offset of next byte in obuff */
 initio()
