@@ -45,7 +45,7 @@ rescue()
 	copystring("qed.hup");
 	setstring(FILEBUF);
 	savall();
-	exit();
+	exit(0);
 }
 savall()
 {
@@ -164,7 +164,7 @@ interrupt()
 	}
 	if(iflag){
 		unlink(tfname);
-		exit();
+		exit(0);
 	}
 	linp=line;
 	putchar('\n');
@@ -541,7 +541,7 @@ commands()
 		if(!startline || getchar()!='\n')
 			error('x');
 		unlink(tfname);
-		exit();
+		exit(0);
 	case 'r':
 		newfile(TRUE, SAVEIFFIRST, string[savedfile].str);
 	caseread:
