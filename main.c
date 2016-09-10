@@ -240,8 +240,7 @@ char **argv;
 		argv++;
 		--argc;
 	}
-	if (gtty(0,&ttybuf)>=0)
-		ttyty = ttybuf.sg_flags&LCASE? monocase : dualcase;
+	ttyty = dualcase;
 	if(startup == 0){
 		xeqdesc = open(XEQFILE, 0);
 		if( xeqdesc != -1 ) {
