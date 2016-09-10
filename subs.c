@@ -57,6 +57,8 @@ substitute(inglob)
 		error('s');
 }
 
+char magic1[] = "/&^\n\\123456789";
+char magic2[] = "/\\\n";
 compsub(subbing)
 	int subbing;
 {
@@ -69,10 +71,10 @@ compsub(subbing)
 		error('x');
 	if(subbing) {
 		compile(seof);
-		rhsmagic = "/&^\n\\123456789";
+		rhsmagic = magic1;
 	}
 	else
-		rhsmagic = "/\\\n";
+		rhsmagic = magic2;
 	rhsmagic[0] = seof;
 	p = rhsbuf;
 	startstring();
