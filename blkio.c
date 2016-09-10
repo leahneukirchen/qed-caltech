@@ -54,8 +54,8 @@ int putline()
 
 	cflag++;
 	lp = linebuf;
-	r = (oblock<<8) + ((int)(op=ooff)>>1);	/* ooff may be 512! */
-	op += (int) obuff;
+	r = (oblock<<8) + (ooff>>1);	/* ooff may be 512! */
+	op = obuff + ooff;
 	lock++;
 	do {
 		if (op >= obuff+BLKSIZE) {
