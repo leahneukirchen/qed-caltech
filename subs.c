@@ -311,7 +311,7 @@ xform()
 			i=linebuf;
 			o=genbuf;
 			do ; while (*o++ = *i++);
-			if (i+m-rhsbuf > linebuf+LBSIZE)
+			if (i+(m-rhsbuf) > linebuf+LBSIZE)
 				error('l'); /* out of space */
 			i=genbuf;
 			o=linebuf;
