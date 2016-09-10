@@ -4,7 +4,7 @@
  * Copyright 1974, Bell Telephone Laboratories, Incorporated
  * Copyright 1979, Thomas D. S. Duff, D. Hugh Redelmeier, Robert C. Pike, David M. Tilbrook
  */
-/* #define	V7	v7	/* if this is a v7 system */
+#define	V7	v7	/* if this is a v7 system */
 #ifdef V7
 /*	Fake setexit & reset from v6 using setjmp and longjmp	*/
 #include <setjmp.h>
