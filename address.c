@@ -1,6 +1,13 @@
 /*% cc -c -O %
  */
 #include "vars.h"
+int* adderr(c)
+{
+	if(!errok)
+		error(c);
+	truth=FALSE;
+	return(0);
+}
 int *address(deflt)
 	int *deflt;
 {
@@ -80,11 +87,4 @@ int *address(deflt)
 		plus = TRUE;
 	}
 	return(adderr('$'));
-}
-adderr(c)
-{
-	if(!errok)
-		error(c);
-	truth=FALSE;
-	return(0);
 }
