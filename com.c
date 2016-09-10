@@ -75,6 +75,7 @@ getlabel(){
 	if(p==genbuf)
 		error('y');
 }
+int * looper(int *, int *, char *str, int);
 search(forward)
 {
 	register int *a1;
@@ -97,7 +98,7 @@ search(forward)
 		stackp->charno = 0;
 	}
 }
-looper(a1,a2,str,dir) register int *a1; int *a2; char *str;
+int * looper(a1,a2,str,dir) register int *a1; int *a2; char *str;
 {
 	register char *p1;
 	register char *p2;
@@ -135,7 +136,7 @@ setapp()
 	else if(c!='\n')
 		error('x');
 }
-append(f, a) int (*f)();
+append(f, a) int (*f)(); int *a;
 {
 	register *a1, *a2, *rdot;
 	int nline, tl;

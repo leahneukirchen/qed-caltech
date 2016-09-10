@@ -2,7 +2,7 @@
  */
 #include "vars.h"
 #define SIGINTR	2
-bufinit(n)
+bufinit(void *n)
 {
 	struct buffer *bufp;
 	register *fend;

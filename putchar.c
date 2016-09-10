@@ -56,8 +56,7 @@ putl(sp) register sp;
 	puts(sp);
 	listf = FALSE;
 }
-puts(sp)
-	register char *sp;
+puts(char *sp)
 {
 	col = 0;
 	while (*sp)

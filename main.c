@@ -1,5 +1,7 @@
 /*% cc -c -O %
  */
+#include <unistd.h>
+#include <stdlib.h>
 #include "vars.h"
 #define SIGHUP	1
 #define SIGINTR	2
@@ -32,6 +34,9 @@ char	correspondence[] ="|^\\`[]{}~";
 char	monocase[] ="`|~{}";
 char	esc_monocase[] ="'!^()";
 int	(*pending)();
+
+char *filea();
+char *fileb();
 
 rescue()
 {
@@ -75,20 +80,21 @@ savall()
 }
 restor()
 {
-	register i, t;
+	register tt;
+	long i, t;
 	register struct buffer *b;
 	char	svfname[512];
 	int fi;
 	int getfile();
 	curbuf = buffer;
 	i = curbuf->zero;
-	if((t = open(filea(), 0)) < 0){
+	if((tt = open(filea(), 0)) < 0){
 		lastc = '\n';
 		error('o'|FILERR);
 	}
 	initio();
 	init();
-	io = t;
+	io = tt;
 	ninbuf = 0;
 	append(getfile, dol);
 	exfile();
@@ -119,7 +125,7 @@ restor()
 	newbuf(0);
 	error(0);	/* ==> error, but don't print anything. calls unlock() */
 }
-filea()
+char *filea()
 {
 	register struct string *sp;
 	register int i, d;
@@ -142,7 +148,7 @@ filea()
 	return(sp->str);
 }
 
-fileb()
+char *fileb()
 {
 	register struct string *sp;
 

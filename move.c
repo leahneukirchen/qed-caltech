@@ -112,7 +112,7 @@ fixup(from,to,tot) int from, to, tot;
 	}
 	buffer[hi].zero += n;
 }
-reverse(aa1, aa2)
+reverse(int *aa1, int *aa2)
 {
 	register int *a1, *a2, t;
 	a1 = aa1;

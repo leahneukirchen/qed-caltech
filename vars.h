@@ -181,3 +181,6 @@ char	nchars[7];	/* chars for `n' option: = "rspPlL" */
 #define	lchars	(nchars+2)	/* valid display characters; used by append */
 int	litflag; /*0*/	/* TRUE==> don't interpret special chars */
 int	bbempty;	/* whether getc's internal buffer buffer is correct */
+
+char *getline(int, char*);
+int *address(int*);
