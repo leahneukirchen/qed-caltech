@@ -111,12 +111,13 @@ init()
 	register pid;
 	lock++;
 	close(tfile);
-	tfname = "/tmp/qxxxxx";
+	static char buf[12] = "/tmp/qxxxxx";
+	tfname = buf;
 	pid = getpid();
 	srand(pid);
-	for (p = &tfname[11]; p > &tfname[6];) {
+	for (p = &buf[11]; p > &buf[6];) {
 		*--p = (pid%10) + '0';
-		pid =/ 10;
+		pid /= 10;
 	}
 	close(creat(tfname, 0600));
 	tfile = open(tfname, 2);
