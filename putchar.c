@@ -11,7 +11,6 @@ putd()
 {
 	putlong(count);
 }
-#define	PDP11	PDP11
 #ifdef	PDP11
 /*
  *	In version 6, ldiv() is in the library. In version 7, it is separate:
