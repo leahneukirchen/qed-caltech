@@ -139,7 +139,6 @@ append(f, a) int (*f)();
 {
 	register *a1, *a2, *rdot;
 	int nline, tl;
-	struct { int iint; };
 	appflag++;
 	nline = 0;
 	dot = a;
@@ -147,7 +146,6 @@ append(f, a) int (*f)();
 		if (lastdol>=endcore) {
 			if (sbrk(1024)==-1)
 				error('c');
-			// endcore.iint =+ 1024;
 			endcore += 1024;
 		}
 		tl = putline();
