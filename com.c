@@ -146,7 +146,7 @@ append(f, a) int (*f)(); int *a;
 	dot = a;
 	while ((*f)()==0) {
 		if (lastdol>=endcore) {
-			if (sbrk(1024)==-1)
+			if (sbrk(1024 * sizeof endcore)==-1)
 				error('c');
 			endcore += 1024;
 		}
