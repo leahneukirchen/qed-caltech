@@ -1,6 +1,8 @@
 /*% cc -c -O %
  */
 #include "vars.h"
+void fixup();
+void reverse();
 move(copyflag)
 {
 	register int *adt, *ad1, *ad2;
@@ -86,6 +88,7 @@ move(copyflag)
 	dol = buffer[tb].dol;
 	unlock();
 }
+void
 fixup(from,to,tot) int from, to, tot;
 {
 	register int b;
@@ -112,6 +115,7 @@ fixup(from,to,tot) int from, to, tot;
 	}
 	buffer[hi].zero += n;
 }
+void
 reverse(int *aa1, int *aa2)
 {
 	register int *a1, *a2, t;

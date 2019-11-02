@@ -22,6 +22,7 @@ int	expgood	/*0*/;		/* flag indicating if compiled exp is good */
 #define CSPACE	18
 int	circfl;
 char	pmagic[] = "/.$^*+\\(){}[!_";
+void
 compile(eof)
 char eof;
 {

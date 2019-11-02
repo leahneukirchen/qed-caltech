@@ -3,6 +3,7 @@
 #include "vars.h"
 #define	ALWAYS	2
 #define GBSIZE	256
+void
 until(nfl, n)
 {
 	register c, type;

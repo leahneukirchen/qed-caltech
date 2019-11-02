@@ -5,6 +5,7 @@
 #define	BACKWARD 11
 #define FORWARD 12
 char	jumpcs[] = "0123456789o`'";
+void
 jump()	/* this should be pronounced with a Swedish accent */
 {
 	register int i;
@@ -200,6 +201,7 @@ bcom()
 	}
 	display(bformat);
 }
+void
 delete()
 {
 	register *a1, *a2, *a3;
@@ -355,6 +357,7 @@ numbuild(n)
 		numbuild(i);
 	addstring(n%10+'0');
 }
+void
 strcom(z)
 {
 	register char *q;

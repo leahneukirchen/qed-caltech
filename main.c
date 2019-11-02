@@ -37,7 +37,10 @@ int	(*pending)();
 
 char *filea();
 char *fileb();
+void savall();
+void commands();
 
+void
 rescue()
 {
 	/* Save in qed.hup:[ab]q on hangup */
@@ -52,6 +55,7 @@ rescue()
 	savall();
 	exit(0);
 }
+void
 savall()
 {
 	register fi;
@@ -161,6 +165,7 @@ char *fileb()
  *	On INTR, generate error '?'
  */
 
+void
 interrupt()
 {
 	signal(SIGINTR, interrupt);
@@ -316,6 +321,7 @@ char **argv;
 	unlink(tfname);
 }
 
+void
 commands()
 {
 	register int *a;
