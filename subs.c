@@ -104,7 +104,7 @@ int getsub()
 	p1 = linebuf;
 	if ((p2 = linebp) == 0)
 		return(EOF);
-	do ; while (*p1++ = (*p2++ & 0177));
+	do ; while (*p1++ = (*p2++ & 0377));
 	linebp = 0;
 	return(0);
 }
@@ -122,7 +122,7 @@ dosub()
 	while (c = *p++) {
 		if (c=='&' || (c == '^' && uflag))
 			place(loc1,loc2,c=='^');
-		else if (c<0 && (c &= 0177)>='1' && c<'1'+nbra)
+		else if (c<0 && (c &= 0377)>='1' && c<'1'+nbra)
 			place(braslist[c-'1'],braelist[c-'1'], 0);
 		else {
 			*next_new++ = c;
